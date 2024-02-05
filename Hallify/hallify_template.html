@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallify-Colaborate</title>
+    <link rel="stylesheet" href="hallify_template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+ 
+    <header class="head">
+       <h2>Hallify</h2>
+       
+        <nav class="navbar ">
+            <a href="index.html" class="active">Home</a>
+            <a href="#service">Logins</a>
+            <!-- <a href="#vendor">Vendors</a> -->
+            <!-- <a href="#venue">Venue</a> -->
+            <!-- <a href="#invite">E-invites</a> -->
+            <a href="#contact">Contact us</a>
+        </nav>
+        <div id="menu-bar"><i class="fas fa-bars"></i></div>
+    </header>
+    <!---------------------------Home--------------------->
+    <section class="home" id="home">
+        <form action="#">
+            <div class="search-box">
+                <h1>Together with Hallify, we make dreams come true</h1>
+                <p>On Partnership with Hallify</p> 
+            </div>
+        </form>
+    </section>
+
+
+
+    
+    <!--------------------------------------------footer section--------------------------->
+    <footer id="contact">
+        <div class="container">
+            <div class="f-container">
+                <h2>Hallify - Your One-Stop Event Concierge.</h2><br>
+                <p>Colab us , Hallify is an Indian Wedding Planning Website </p>
+                <div>
+                    <!-- <button class="btn">collaborate</button> -->
+                </div>
+                <div class="social">
+                    <i class="fab fa-facebook" style="color: blue;"></i>
+                    <i class="fab fa-instagram" style="color:violet"></i>
+                    <i class="fab fa-linkedin" style="color: blue;"></i>
+                    <i class="fab fa-twitter" style="color: rgb(24, 154, 206);"></i>
+                    <i class="fab fa-pinterest" style="color: red;"></i>
+                </div>
+            </div>
+            <div class="f-container">
+                <h2>Our Location</h2>
+                <a href="#"><i class="fas fa-angle-right"></i>Visakhapatnam</a>
+                <a href="#"><i class="fas fa-angle-right"></i>Vizinagaram</a>
+                <!-- <a href="#"><i class="fas fa-angle-right"></i>Mumbai</a>
+                <a href="#" ><i class=" fas fa-angle-right "></i>Ahemdabad</a>
+                    <a href="# "><i class="fas fa-angle-right "></i>Surat</a> -->
+                </div>
+                
+                <div class="f-container ">
+                    <h2>Our Newsletter</h2>
+                    <p>Subscribe for latest updates</p>
+                    <input type="text " placeholder="Enter Your Email ">
+                    <button class="btn ">Subscribe</button>
+                    </div>
+            </div>
+        </footer>
+        <div class="copyright ">
+            <p>Copyright ©2023 All Rights Reserved | Hallify</p>
+        </div>
+</body>
+<script>
+     let menu = document.querySelector('#menu-bar');
+    let head = document.querySelector('.head .navbar');
+
+    menu.onclick = () => {
+        head.classList.toggle('active');
+    };
+
+    window.onscroll = () => {
+        head.classList.remove('active');
+        if (window.scrollY > 60) {
+            document.querySelector('#menu-bar').classList.add('active');
+        } else {
+            document.querySelector('#menu-bar').classList.remove('active');
+        }
+    };
+</script>    
+</html>

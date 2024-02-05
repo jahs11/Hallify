@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Example</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="options" style="display: none;">
+        <button id="viewBtn">View</button>
+        <button id="editBtn">Edit</button>
+    </div>
+
+    <div id="details" style="display: none;">
+        <p id="nameDisplay"></p>
+        <p id="emailDisplay"></p>
+    </div>
+
+    <script >
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // Display options
+    document.getElementById("options").style.display = "block";
+    document.getElementById("nameDisplay").textContent = `Name: ${name}`;
+    document.getElementById("emailDisplay").textContent = `Email: ${email}`;
+});
+
+document.getElementById("viewBtn").addEventListener("click", function () {
+    // Show the details section
+    document.getElementById("details").style.display = "block";
+    // Hide the form and options
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("options").style.display = "none";
+});
+
+document.getElementById("editBtn").addEventListener("click", function () {
+    // Show the form and hide the details
+    document.getElementById("myForm").style.display = "block";
+    document.getElementById("details").style.display = "none";
+});
+
+    </script>
+</body>
+</html>

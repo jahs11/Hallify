@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Would you like to go on a date?</title>
+    <style>
+       body{ 
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .date-container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="date-container">
+        <h1>Hi Maggie,</h1>
+        <p class="message">I've been thinking, and I have a question for you:</p>
+        <p class="question">Would you like to go on a date with me?</p>
+        <form method="post">
+            <div class="button-container">
+                <button id="yes-button" name="response" value="yes">Yes</button>
+                <button id="no-button" name="response" value="no">No</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("uSvvfx-C6Y89nP62K"); // Replace with your Email.js API key
+
+        function sendEmail(response) {
+          const crushName = "Maggie"; // Replace with your crush's name
+          const responseMessage = response === "yes" ? "Yes" : "No";
+
+          emailjs.send("service_244lt6v", "template_8yd2p6e", {
+            to_email: "jashujash11@gmail.com", // Replace with your email address
+            crush_name: crushName,
+            response: responseMessage, // Include the response in the email
+          })
+          .then(function(response) {
+            alert("Email sent successfully!");
+          }, function(error) {
+            alert("Email could not be sent. Error: " + JSON.stringify(error));
+          });
+        }
+
+        document.getElementById("yes-button").addEventListener("click", function() {
+          sendEmail("yes");
+        });
+
+        document.getElementById("no-button").addEventListener("click", function() {
+          sendEmail("no");
+        });
+    </script>
+</body>
+</html>

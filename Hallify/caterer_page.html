@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hallify-Colaborate</title>
+    <link rel="stylesheet" href="caterer_page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .form-container {
+        display: block;
+      }
+
+      .details-container {
+        display: none;
+      }
+
+      .btn-container {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="head">
+      <h2>Hallify</h2>
+      <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="#service">Logins</a>
+        <a href="#vendor">Orders</a>
+        <a href="#contact">Contact us</a>
+      </nav>
+      <div id="menu-bar"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section class="home" id="home">
+      <form action="#">
+        <div class="search-box">
+          <h1>Together with Hallify, we make dreams come true</h1>
+          <p>On Partnership with Hallify</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="catering-details" id="catering-details">
+      <div class="container">
+        <h1>Catering Details</h1>
+        <form action="#" class="form" id="catering-form">
+          <div class="input-box">
+            <label for="full-name">catering Name</label>
+            <input
+              type="text"
+              id="full-name"
+              placeholder="Catering Name"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="email">Email Address</label>
+            <input
+              style="text-transform: lowercase"
+              type="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="phone">phone number</label>
+            <input type="phone" id="phone" placeholder="Mobile" required />
+          </div>
+
+          <div class="input-box address">
+            <label for="street-address">Address</label>
+            <input
+              type="text"
+              id="street-address"
+              placeholder="Enter street address"
+              required
+            />
+            <input
+              type="text"
+              id="street-address-line2"
+              placeholder="Enter street address line 2"
+              required
+            />
+            <div class="column">
+              <div class="input-box">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  placeholder="Enter your city"
+                  required
+                />
+              </div>
+            </div>
+            <div class="column">
+              <div class="input-box">
+                <label for="region">Region</label>
+                <input
+                  type="text"
+                  id="region"
+                  placeholder="Enter your region"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="postal-code">Postal Code</label>
+                <input
+                  type="number"
+                  id="postal-code"
+                  placeholder="Enter postal code"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="cost">Min.Cost per plate (Veg)</label>
+                <input type="number" id="veg-cost" required />
+              </div>
+              <div class="input-box">
+                <label for="cost">Min.Cost per plate (Non-Veg)</label>
+                <input type="number" id="nonveg-cost" required />
+              </div>
+              <div class="input-box">
+                <label for="veg-menu">Suggested Veg menu</label>
+                <textarea
+                  name="veg menu"
+                  id="veg-menu"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="input-box">
+                <label for="non-veg-menu">Suggested Non-veg menu</label>
+                <textarea
+                  name="non-veg menu"
+                  id="non_veg-menu"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="input-box">
+                <label for="Capacity">Capacity you can cook</label>
+                <input type="number" id="capacity" name="Capacity" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit">
+            <h1 onsubmit="submit()">Submit</h1>
+          </button>
+        </form>
+      </div>
+    </section>
+    <div id="submittedData" class="submitted-data">
+      <h2 id="submit-header">Our catering provides</h2>
+      <p id="catering_name"></p>
+      <p id="email"></p>
+      <p id="phone_number"></p>
+      <p id="street_address"></p>
+      <p id="street_address_2"></p>
+      <p id="region"></p>
+      <p id="postal_code"></p>
+      <p id="veg_plate"></p>
+      <p id="nonveg_plate"></p>
+      <p id="veg_menu"></p>
+      <p id="nonveg_menu"></p>
+      <p id="Capacity"></p>
+      <br />
+      <button id="edit-btn" onclick="editForm()">Edit</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("catering-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var catering_name = document.getElementById("full-name").value;
+          var email = document.getElementById("email").value;
+          var phone_number = document.getElementById("phone").value;
+          var street_address = document.getElementById("street-address").value;
+          var street_address_2 = document.getElementById(
+            "street-address-line2"
+          ).value;
+          var city = document.getElementById("city").value;
+          var region = document.getElementById("region").value;
+          var postal_code = document.getElementById("postal-code").value;
+          var veg_plate = document.getElementById("veg-cost").value;
+          var nonveg_plate = document.getElementById("nonveg-cost").value;
+          var veg_menu = document.getElementById("veg-menu").value;
+          var nonveg_menu = document.getElementById("non_veg-menu").value;
+          var Capacity = document.getElementById("capacity").value;
+
+          document.getElementById("catering_name").innerText =
+            "Catering Name  : " + catering_name;
+          document.getElementById("email").innerText = "Email : " + email;
+          document.getElementById("phone_number").innerText =
+            "Phone Number : " + phone_number;
+          document.getElementById("street_address").innerText =
+            "Address : " + street_address;
+          document.getElementById("street_address_2").innerText =
+            "Address line-2 : " + street_address_2;
+          document.getElementById("region").innerText = "Region : " + region;
+          document.getElementById("postal_code").innerText =
+            "Postal code : " + postal_code;
+          document.getElementById("veg_plate").innerText =
+            "Veg platter cost : " + veg_plate;
+          document.getElementById("nonveg_plate").innerText =
+            "Non-veg platter cost : " + nonveg_plate;
+          document.getElementById("veg_menu").innerText =
+            "Suggested Veg menu : " + veg_menu;
+          document.getElementById("nonveg_menu").innerText =
+            "Suggested Non-veg menu : " + nonveg_menu;
+          document.getElementById("Capacity").innerText =
+            "Capacity we can cook : " + Capacity;
+
+          document.getElementById("catering-details").style.display = "none";
+          document.getElementById("submittedData").style.display = "block";
+        });
+
+      function submit() {
+        document.getElementById("submittedData").style.display = "block";
+      }
+
+      function editForm() {
+        document.getElementById("catering-details").style.display = "block";
+        document.getElementById("submittedData").style.display = "none";
+      }
+    </script>
+
+    <footer id="contact">
+      <div class="contain">
+        <div class="f-container">
+          <h2>Hallify - Your One-Stop Event Concierge.</h2>
+          <br />
+          <p>Colab us, Hallify is an Indian Wedding Planning Website</p>
+          <div>
+            <!-- <button class="btn">collaborate </button> -->
+          </div>
+          <div class="social">
+            <i class="fab fa-facebook" style="color: blue"></i>
+            <i class="fab fa-instagram" style="color: violet"></i>
+            <i class="fab fa-linkedin" style="color: blue"></i>
+            <i class="fab fa-twitter" style="color: rgb(24, 154, 206)"></i>
+            <i class="fab fa-pinterest" style="color: red"></i>
+          </div>
+        </div>
+        <div class="f-container">
+          <h2>Our Location</h2>
+          <a href="#"><i class="fas fa-angle-right"></i>Visakhapatnam</a>
+          <a href="#"><i class="fas fa-angle-right"></i>Vizinagaram</a>
+        </div>
+
+        <div class="f-container">
+          <h2>Our Newsletter</h2>
+          <p>Subscribe for the latest updates</p>
+          <input type="text" placeholder="Enter Your Email" />
+          <button class="btn">Subscribe</button>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright">
+      <p>
+        Copyright ©2023 All Rights Reserved | <a href="index.html">Hallify</a>
+      </p>
+    </div>
+  </body>
+
+  <script>
+    let menu = document.querySelector("#menu-bar");
+    let head = document.querySelector(".head .navbar");
+
+    menu.onclick = () => {
+      head.classList.toggle("active");
+    };
+
+    window.onscroll = () => {
+      head.classList.remove("active");
+      if (window.scrollY > 60) {
+        document.querySelector("#menu-bar").classList.add("active");
+      } else {
+        document.querySelector("#menu-bar").classList.remove("active");
+      }
+    };
+  </script>
+</html>
